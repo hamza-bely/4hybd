@@ -1,0 +1,26 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: userservice
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/userservice?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+    username: hamza
+    password: hamza
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+    show-sql: true
+
+app:
+  jwt:
+    secret: c7d9e7f2ad9c8d6b4a3f1e8d7c5b2a9d6f3e8c1b4a7d5f2e8c9b6a3d1f4e7
+    expiration: 86400000
