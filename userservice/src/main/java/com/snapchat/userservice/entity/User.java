@@ -36,6 +36,10 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @Lob
+    @Column(name = "profile_image")
+    private byte[] profileImage;
+
     @Column(name = "created_at")
     private java.time.LocalDateTime createdAt;
 
