@@ -8,7 +8,7 @@ import {
   ApiResponse, 
   User 
 } from '../types';
-
+import axios from 'axios';
 const TOKEN_KEY = 'auth_token';
 const USER_DATA_KEY = 'user_data';
 
@@ -46,28 +46,30 @@ export const clearAuthData = async (): Promise<void> => {
   await Preferences .remove({ key: USER_DATA_KEY });
 };
 
-// Login function
+const BASE_URL = 'http://localhost:8081';
+
 export const login = async (credentials: LoginRequest): Promise<User> => {
   try {
-    const response = await apiRequest<ApiResponse<AuthResponse>>(authApi, {
-      method: 'POST',
-      url: '/auth/login',
-      data: credentials,
+    const response = await axios.post(`${BASE_URL}/auth/login`, credentials, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
 
-    const { token, userId, name, email } = response.data;
-    
+    const { token, userId, name, email } = response.data.data;
+
     // Store token and user data
     await setToken(token);
     const userData = { id: userId, name, email };
     await setUserData(userData);
-    
+
     return userData;
   } catch (error) {
     console.error('Login failed:', error);
     throw error;
   }
 };
+
 
 // Register function
 export const register = async (userData: RegisterRequest): Promise<User> => {
@@ -138,6 +140,27 @@ export const updateUser = async (id: number, userData: Partial<User>): Promise<U
       await setUserData({ ...currentUser, ...userData });
     }
     
+    return response;
+  } catch (error) {
+    console.error(`Failed to update user with ID ${id}:`, error);
+    throw error;
+  }
+};
+
+export const fetchUserService = async (id: number, userData: Partial<User>): Promise<User> => {
+  try {
+    const response = await apiRequest<User>(authApi, {
+      method: 'PUT',
+      url: `/users/${id}`,
+      data: userData,
+    });
+
+    // Update stored user data
+    const currentUser = await getUserData();
+    if (currentUser && currentUser.id === id) {
+      await setUserData({ ...currentUser, ...userData });
+    }
+
     return response;
   } catch (error) {
     console.error(`Failed to update user with ID ${id}:`, error);

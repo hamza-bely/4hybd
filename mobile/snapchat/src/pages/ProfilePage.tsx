@@ -47,24 +47,13 @@ const ProfilePage: React.FC = () => {
         <IonToolbar>
           <IonTitle>Profile</IonTitle>
           <IonButtons slot="end">
-            <IonButton>
-              <IonIcon slot="icon-only" icon={settingsOutline} />
-            </IonButton>
+
           </IonButtons>
         </IonToolbar>
       </IonHeader>
       
       <IonContent>
         <div className="flex flex-col items-center p-6 bg-primary">
-          <IonAvatar className="w-24 h-24 border-4 border-white">
-            <div className="bg-white w-full h-full flex items-center justify-center rounded-full">
-              <IonIcon 
-                icon={personCircleOutline} 
-                className="w-20 h-20 text-gray-400"
-              />
-            </div>
-          </IonAvatar>
-          
           <h2 className="text-xl font-bold mt-4 text-black">{user?.name || 'User'}</h2>
           <p className="text-sm text-gray-700">{user?.email || 'user@example.com'}</p>
           
@@ -90,40 +79,15 @@ const ProfilePage: React.FC = () => {
         <IonList>
           <IonListHeader>Account</IonListHeader>
           
-          <IonItem>
-            <IonIcon slot="start" icon={personCircleOutline} />
-            <IonLabel>My Account</IonLabel>
-          </IonItem>
-          
-          <IonItem>
-            <IonIcon slot="start" icon={lockClosedOutline} />
-            <IonLabel>Privacy</IonLabel>
-          </IonItem>
+
+
+          //ajoute le info de user
+
           
           <IonItem>
             <IonIcon slot="start" icon={notificationsOutline} />
             <IonLabel>Notifications</IonLabel>
           </IonItem>
-          
-          <IonListHeader>Preferences</IonListHeader>
-          
-          <IonItem>
-            <IonIcon slot="start" icon={moonOutline} />
-            <IonLabel>Dark Mode</IonLabel>
-            <IonToggle 
-              slot="end" 
-              checked={darkMode} 
-              onIonChange={toggleDarkMode}
-            />
-          </IonItem>
-          
-          <IonListHeader>Support</IonListHeader>
-          
-          <IonItem>
-            <IonIcon slot="start" icon={helpCircleOutline} />
-            <IonLabel>Help & Support</IonLabel>
-          </IonItem>
-          
           <IonItem button onClick={() => setShowLogoutAlert(true)}>
             <IonIcon slot="start" icon={logOutOutline} color="danger" />
             <IonLabel color="danger">Logout</IonLabel>

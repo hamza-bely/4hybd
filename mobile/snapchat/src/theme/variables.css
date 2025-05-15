@@ -1,0 +1,120 @@
+/* Ionic Variables and Theming */
+:root {
+    /* Snapchat Yellow */
+    --ion-color-primary: #FFFC00;
+    --ion-color-primary-rgb: 255, 252, 0;
+    --ion-color-primary-contrast: #000000;
+    --ion-color-primary-contrast-rgb: 0, 0, 0;
+    --ion-color-primary-shade: #e0de00;
+    --ion-color-primary-tint: #fffc1a;
+
+    /* Secondary color - Purple for some elements */
+    --ion-color-secondary: #9c44dc;
+    --ion-color-secondary-rgb: 156, 68, 220;
+    --ion-color-secondary-contrast: #ffffff;
+    --ion-color-secondary-contrast-rgb: 255, 255, 255;
+    --ion-color-secondary-shade: #893cc2;
+    --ion-color-secondary-tint: #a657e0;
+
+    /* Tertiary color - Light blue for UI accents */
+    --ion-color-tertiary: #55d6f5;
+    --ion-color-tertiary-rgb: 85, 214, 245;
+    --ion-color-tertiary-contrast: #000000;
+    --ion-color-tertiary-contrast-rgb: 0, 0, 0;
+    --ion-color-tertiary-shade: #4bbcd8;
+    --ion-color-tertiary-tint: #66daf6;
+
+    /* Success, warning, danger colors */
+    --ion-color-success: #2dd36f;
+    --ion-color-success-rgb: 45, 211, 111;
+    --ion-color-success-contrast: #000000;
+    --ion-color-success-contrast-rgb: 0, 0, 0;
+    --ion-color-success-shade: #28ba62;
+    --ion-color-success-tint: #42d77d;
+
+    --ion-color-warning: #ffc409;
+    --ion-color-warning-rgb: 255, 196, 9;
+    --ion-color-warning-contrast: #000000;
+    --ion-color-warning-contrast-rgb: 0, 0, 0;
+    --ion-color-warning-shade: #e0ac08;
+    --ion-color-warning-tint: #ffca22;
+
+    --ion-color-danger: #eb445a;
+    --ion-color-danger-rgb: 235, 68, 90;
+    --ion-color-danger-contrast: #ffffff;
+    --ion-color-danger-contrast-rgb: 255, 255, 255;
+    --ion-color-danger-shade: #cf3c4f;
+    --ion-color-danger-tint: #ed576b;
+
+    /* Light and dark shades */
+    --ion-color-dark: #222428;
+    --ion-color-dark-rgb: 34, 36, 40;
+    --ion-color-dark-contrast: #ffffff;
+    --ion-color-dark-contrast-rgb: 255, 255, 255;
+    --ion-color-dark-shade: #1e2023;
+    --ion-color-dark-tint: #383a3e;
+
+    --ion-color-medium: #92949c;
+    --ion-color-medium-rgb: 146, 148, 156;
+    --ion-color-medium-contrast: #000000;
+    --ion-color-medium-contrast-rgb: 0, 0, 0;
+    --ion-color-medium-shade: #808289;
+    --ion-color-medium-tint: #9d9fa6;
+
+    --ion-color-light: #f4f5f8;
+    --ion-color-light-rgb: 244, 245, 248;
+    --ion-color-light-contrast: #000000;
+    --ion-color-light-contrast-rgb: 0, 0, 0;
+    --ion-color-light-shade: #d7d8da;
+    --ion-color-light-tint: #f5f6f9;
+
+    /* Custom app colors */
+    --app-background: #ffffff;
+    --chat-bubble-sent: #dcf8c6;
+    --chat-bubble-received: #f2f2f2;
+}
+
+/* Override Tailwind colors with Ionic variables */
+:root {
+    --color-primary: var(--ion-color-primary);
+    --color-secondary: var(--ion-color-secondary);
+    --color-tertiary: var(--ion-color-tertiary);
+    --color-success: var(--ion-color-success);
+    --color-warning: var(--ion-color-warning);
+    --color-danger: var(--ion-color-danger);
+}
+
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+    body {
+        --ion-color-primary: #FFFC00;
+        --ion-color-primary-rgb: 255, 252, 0;
+        --ion-color-primary-contrast: #000000;
+        --ion-color-primary-contrast-rgb: 0, 0, 0;
+        --ion-color-primary-shade: #e0de00;
+        --ion-color-primary-tint: #fffc1a;
+
+        --ion-color-secondary: #b163ff;
+        --ion-color-secondary-rgb: 177, 99, 255;
+        --ion-color-secondary-contrast: #000000;
+        --ion-color-secondary-contrast-rgb: 0, 0, 0;
+        --ion-color-secondary-shade: #9c57e0;
+        --ion-color-secondary-tint: #b979ff;
+
+        --ion-color-tertiary: #6edfff;
+        --ion-color-tertiary-rgb: 110, 223, 255;
+        --ion-color-tertiary-contrast: #000000;
+        --ion-color-tertiary-contrast-rgb: 0, 0, 0;
+        --ion-color-tertiary-shade: #61c4e0;
+        --ion-color-tertiary-tint: #7de2ff;
+
+        --ion-background-color: #121212;
+        --ion-background-color-rgb: 18, 18, 18;
+        --ion-text-color: #ffffff;
+        --ion-text-color-rgb: 255, 255, 255;
+
+        --app-background: #121212;
+        --chat-bubble-sent: #056162;
+        --chat-bubble-received: #262d31;
+    }
+}

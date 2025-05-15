@@ -15,6 +15,7 @@ interface AuthState {
   login: (email: string, password: string) => Promise<void>;
   register: (name: string, email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
+  fetchUser: () => Promise<User[]>;
   checkAuth: () => Promise<void>;
   clearError: () => void;
 }
@@ -38,6 +39,18 @@ export const useAuthStore = create<AuthState>((set) => ({
       });
     }
   },
+
+
+  fetchUser: async () => {
+    set({ isLoading: true, error: null });
+    try {
+      const user = await fetchUserService();
+      set({ user, isAuthenticated: true, isLoading: false });
+    } catch (error) {
+      console.error('user error:', error);
+    }
+  },
+
 
   register: async (name, email, password) => {
     set({ isLoading: true, error: null });

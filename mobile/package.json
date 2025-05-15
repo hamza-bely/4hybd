@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@capacitor/camera": "^7.0.1",
+    "@capacitor/geolocation": "^7.1.2",
+    "@capacitor/preferences": "^7.0.1",
+    "date-fns": "^4.1.0",
+    "lucide-react": "^0.510.0",
+    "react-hook-form": "^7.56.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.6"
+  }
+}

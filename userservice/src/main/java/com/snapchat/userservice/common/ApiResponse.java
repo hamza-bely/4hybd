@@ -9,6 +9,7 @@ public class ApiResponse<T> {
         this.data = data;
     }
 
+    // Getters et Setters
     public String getMessage() {
         return message;
     }

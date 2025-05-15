@@ -1,4 +1,4 @@
-package com.snapchat.userservice.common;
+package com.snapchat.storyservice.common;
 
 public class ApiResponse<T> {
     private String message;

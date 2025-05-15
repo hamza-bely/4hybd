@@ -16,6 +16,7 @@ const LoginPage: React.FC = () => {
   const { login, isLoading, error, clearError } = useAuthStore();
 
   const handleLogin = async (data: { email: string; password: string }) => {
+    console.log('login', data);
     clearError();
     await login(data.email, data.password);
   };

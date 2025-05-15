@@ -15,10 +15,13 @@ services:
       - "3306:3306"
     volumes:
       - mysql-data:/var/lib/mysql
+    networks:
+      - backend
 
   user-service:
     build:
       context: ./userservice
+      dockerfile: Dockerfile
     container_name: user-service
     restart: always
     ports:
@@ -31,10 +34,13 @@ services:
       - mysql-db
     networks:
       - backend
+    volumes:
+      - ./userservice/target:/app/target
 
   api-gateway:
     build:
       context: ./apigateway
+      dockerfile: Dockerfile
     container_name: api-gateway
     restart: always
     ports:
@@ -43,6 +49,8 @@ services:
       - user-service
     networks:
       - backend
+    volumes:
+      - ./apigateway/target:/app/target
 
 volumes:
   mysql-data:
